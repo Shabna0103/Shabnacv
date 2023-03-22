@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="files/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="portfolio-main">
+    <!-- Header -->
+    <header>
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+          
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>   
+              </label>
+            </div>
+            
+            <div class="nav-links">
+              <a href="index.html" >Home</a>
+              <a href="about.html">About Me</a>
+              <a href="contact.html" >Contact Us</a>
+              
+            </div>
+          </div>
+    </header>
+
+    <div class="container">
+        <div style="text-align:center">
+          <h1>Contact Us</h1>
+         
+        </div>
+        <div class="row">
+          
+          <div class="column">
+            <form id="submit-form" >
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name..">
+              <label for="lname">Email</label>
+              <input type="text" id="lname" name="email" placeholder="Your last name..">
+              <label for="country">Country</label>
+              <select id="country" name="color">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+              </select>
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="message" placeholder="Write something.." style="height:170px"></textarea>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxg5fIr4JGSAvARu_ZcLPIGrNyfE1FRi8At-MKMKYEE0_EQoFL30tBLespmH4s4XopC/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    window.location.href="index.html"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
